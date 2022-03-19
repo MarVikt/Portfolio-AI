@@ -3,7 +3,7 @@ const tabDescriptions = document.querySelectorAll('.design__descr');
 const tabImages = document.querySelectorAll('.design-images');
 
 // console.dir(tabDescriptions);
-// console.dir(tabButtons);
+console.dir(tabButtons);
 
 const changeContent = (array, value) => {
   array.forEach((elem) => {
@@ -19,6 +19,8 @@ tabButtons.forEach((tabButton) => {
   tabButton.addEventListener('click',(event) => {
     const dataValue = tabButton.dataset.tabsHandler;
 
+    // console.log(tabButton.firstChild.data);
+    document.title = tabButton.firstChild.data;
     changeContent(tabDescriptions,dataValue)   
     changeContent(tabImages,dataValue)   
      
