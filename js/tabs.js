@@ -3,7 +3,7 @@ const tabDescriptions = document.querySelectorAll('.design__descr');
 const tabImages = document.querySelectorAll('.design-images');
 
 // console.dir(tabDescriptions);
-console.dir(tabButtons);
+// console.dir(tabButtons);
 
 const changeContent = (array, value) => {
   array.forEach((elem) => {
@@ -41,8 +41,8 @@ tabButtons.forEach((tabButton) => {
     // })
     
     tabButtons.forEach((btn) => {
-      console.log(btn);
-      console.log(event.target);
+      // console.log(btn);
+      // console.log(event.target);
       if (btn === event.target) {
         btn.classList.add('design-list__item_active')
       } else {
