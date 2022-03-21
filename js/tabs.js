@@ -1,8 +1,11 @@
 const tabButtons = document.querySelectorAll('.design-list__item');
+const tabTitles = document.querySelectorAll('.design__title');
 const tabDescriptions = document.querySelectorAll('.design__descr');
 const tabImages = document.querySelectorAll('.design-images');
+const tabBlockImages = document.querySelectorAll('.design-block__img');
+const currentDesign = document.querySelector('.design-list__item_active');
 
-// console.dir(tabDescriptions);
+// console.log(tabTitles);
 // console.dir(tabButtons);
 
 const changeContent = (array, value) => {
@@ -15,13 +18,28 @@ const changeContent = (array, value) => {
   })
 }
 
-tabButtons.forEach((tabButton) => {
+const changeTitle = (array, index) => {
+  array.forEach((item, indexArray) => {
+    if (index === indexArray) {
+      item.classList.remove('hidden')
+    } else {
+      item.classList.add('hidden')
+    };
+    if (item.classList.contains('design__title') && !item.classList.contains('hidden')) {
+      document.title = item.innerText
+    }
+  })
+}
+
+changeTitle(tabTitles,0)   
+
+tabButtons.forEach((tabButton,index) => {
   tabButton.addEventListener('click',(event) => {
     const dataValue = tabButton.dataset.tabsHandler;
 
-    // console.log(tabButton.firstChild.data);
-    document.title = tabButton.firstChild.data;
+    changeTitle(tabTitles,index)   
     changeContent(tabDescriptions,dataValue)   
+    changeContent(tabBlockImages,dataValue)   
     changeContent(tabImages,dataValue)   
      
     // tabDescriptions.forEach((descr) => {
